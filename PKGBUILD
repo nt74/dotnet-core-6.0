@@ -3,7 +3,7 @@
 pkgname=dotnet-core-6.0
 pkgver=6.0.15
 pkgrel=1
-pkgdesc="Installation of dotnet-core-6.0 SDK och Runtime via the official installation script"
+pkgdesc="Installation of dotnet-core-6.0 SDK/Runtime via the official installation script"
 arch=(any)
 url="https://www.microsoft.com/net/core"
 license=(MIT)
@@ -23,6 +23,12 @@ source=(dotnet-install.sh::"https://dot.net/v1/dotnet-install.sh")
 b2sums=('5380e01cccf119769ba711fde97cb5f2b73f3a24b9c00144de5e49e1e4c08c34e210d4c302fb50ad3f0d3d05a24e4b98c16636755a5b69838731a55c3266f8ff')
 
 prepare() {
+	# Check if /tmp directory exists
+	if [ ! -d "/tmp" ]; then
+		echo "Error: Couldn't find '/tmp' directory, exiting."
+		exit 1
+	fi
+	
 	cd "${srcdir}"
 	chmod +x dotnet-install.sh
 }
@@ -43,6 +49,7 @@ build() {
 	elif [ $CARCH = 'aarch64' ] && [ $(systemctl is-active tmp.mount) = 'active' ]; then sudo systemctl stop tmp.mount; fi
 
 	# Download dotnet-core-6.0 files
+	# Requires /tmp directory to unpack
 	./dotnet-install.sh \
 	--channel 6.0 \
 	--architecture ${msarch} \
