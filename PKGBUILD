@@ -7,7 +7,7 @@ pkgdesc="Installation of dotnet-core-6.0 SDK och Runtime via the official instal
 arch=(any)
 url="https://www.microsoft.com/net/core"
 license=(MIT)
-provides=(dotnet-core-6.0)
+provides=("dotnet-core-6.0=${pkgver}")
 conflicts=(
 	dotnet-core-6.0
 	dotnet-runtime-6.0
@@ -34,7 +34,8 @@ build() {
 	if [ $CARCH = 'x86' ]; then msarch=x86;
 	elif [ $CARCH = 'x86_64' ]; then msarch=x64;
 	elif [ $CARCH = 'armv7h' ]; then msarch=arm;
-	elif [ $CARCH = 'aarch64' ]; then msarch=arm64; fi
+	elif [ $CARCH = 'aarch64' ]; then msarch=arm64;
+	else msarch=auto; fi
 
 	cd "${srcdir}"
 
