@@ -62,10 +62,7 @@ package() {
 	install -dm 755 "${pkgdir}"/usr/{bin,lib}
 	install -dm 755 "${pkgdir}"/usr/share/{dotnet,dotnet/shared,dotnet/packs,licenses,licenses/"${pkgname}"}
 	cp -dr --no-preserve='ownership' dotnet "${pkgdir}"/usr/share/dotnet/dotnet
-	cp -dr --no-preserve='ownership' host "${pkgdir}"/usr/share/dotnet/host/
-	cp -dr --no-preserve='ownership' shared/* "${pkgdir}"/usr/share/dotnet/shared/
-	cp -dr --no-preserve='ownership' packs/* "${pkgdir}"/usr/share/dotnet/packs/
-	cp -dr --no-preserve='ownership' sdk sdk-manifests templates "${pkgdir}"/usr/share/dotnet/
+	cp -dr --no-preserve='ownership' host shared packs sdk sdk-manifests templates "${pkgdir}"/usr/share/dotnet/
 	cp -dr --no-preserve='ownership' "LICENSE.txt" "ThirdPartyNotices.txt" "${pkgdir}"/usr/share/licenses/"${pkgname}"
 	ln -s /usr/share/dotnet/dotnet "${pkgdir}"/usr/bin/dotnet
 	ln -s /usr/share/dotnet/host/fxr/"${pkgver}"/libhostfxr.so "${pkgdir}"/usr/lib/libhostfxr.so
