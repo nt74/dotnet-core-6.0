@@ -41,8 +41,8 @@ build() {
 
 	# DISABLE tmpfs for ARM devices
 	# Workaround for 'out of space' tmpfs (/tmp) directory
-	if [ $CARCH = 'armv7h' ]; then sudo systemctl stop tmp.mount;
-	elif [ $CARCH = 'aarch64' ]; then sudo systemctl stop tmp.mount; fi
+	if [ $CARCH = 'armv7h' ] && [ $(systemctl is-active tmp.mount) = 'active' ]; then sudo systemctl stop tmp.mount;
+	elif [ $CARCH = 'aarch64' ] && [ $(systemctl is-active tmp.mount) = 'active' ]; then sudo systemctl stop tmp.mount; fi
 
 	# Download dotnet-core-6.0 files
 	./dotnet-install.sh \
@@ -54,8 +54,8 @@ build() {
 
 	# ENABLE tmpfs for ARM devices
 	# Workaround for 'out of space' tmpfs (/tmp) directory
-	if [ $CARCH = 'armv7h' ]; then sudo systemctl start tmp.mount;
-	elif [ $CARCH = 'aarch64' ]; then sudo systemctl start tmp.mount; fi	
+	if [ $CARCH = 'armv7h' ] && [ $(systemctl is-active tmp.mount) = 'inactive' ]; then sudo systemctl start tmp.mount;
+	elif [ $CARCH = 'aarch64' ] && [ $(systemctl is-active tmp.mount) = 'inactive' ]; then sudo systemctl start tmp.mount; fi	
 }
 
 package() {
