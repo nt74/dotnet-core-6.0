@@ -7,7 +7,7 @@ pkgbase = dotnet-core-6.0
 	license = MIT
 	makedepends = unzip
 	makedepends = libgdiplus
-	provides = dotnet-core-6.0
+	provides = dotnet-core-6.0=6.0.15
 	conflicts = dotnet-core-6.0
 	conflicts = dotnet-runtime-6.0
 	conflicts = dotnet-sdk-6.0
