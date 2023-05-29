@@ -1,7 +1,7 @@
 # Maintainer: Nikos Toutountzoglou <nikos.toutou@gmail.com>
 
 pkgname=dotnet-core-6.0
-pkgver=6.0.15
+pkgver=6.0.16
 pkgrel=1
 pkgdesc="Installation of dotnet-core-6.0 SDK/Runtime via the official installation script"
 arch=(any)
