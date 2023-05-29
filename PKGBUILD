@@ -20,7 +20,7 @@ conflicts=(
 depends=()
 makedepends=()
 source=(dotnet-install.sh::"https://dot.net/v1/dotnet-install.sh")
-b2sums=('5380e01cccf119769ba711fde97cb5f2b73f3a24b9c00144de5e49e1e4c08c34e210d4c302fb50ad3f0d3d05a24e4b98c16636755a5b69838731a55c3266f8ff')
+b2sums=('68cc4671cf81d08f8a38dfa76ed46e64d2965283ce72aebe28e4fa836cfe1e4706aa4c6f57ade360c11d807eff72b894a1bc22cd1f4b98d3d714532f68a63e96')
 
 prepare() {
 	# Check if /tmp directory exists
