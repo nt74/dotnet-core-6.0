@@ -8,5 +8,5 @@ Arch Linux AUR package using dotnet-installation script.
 git clone https://github.com/nt74/dotnet-core-6.0.git
 cd dotnet-core-6.0/
 makepkg -s
-sudo pacman -U dotnet-core-6.0-6.0.15-1-any.pkg.tar.zst
+sudo pacman -U dotnet-core-6.0-6.0.16-1-any.pkg.tar.zst
 ```
